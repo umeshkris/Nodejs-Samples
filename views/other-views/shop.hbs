@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{pageTitle}}</title>
+<link rel="stylesheet"href="/css/main.css">
+<link rel="stylesheet"href="/css/product.css">
+</head>
+
+<body>
+    <header class="main-header" >
+        <nav class="main-header-nav">
+            <ul class="main-header-itemlist">
+                <li class="main-header-item"><a class="active" href="/">Shop</a></li>
+                <li class="main-header-item"><a href="/admin/add-products">Add Product</a></li>
+            </ul class>
+        </nav>
+    </header>
+
+    <main>
+        {{#if hasProducts}}
+        <div class="grid">
+            {{#each prods}}         
+            <article class="card.product-item">
+                    <header class="card__header"></header>
+                        <h1 class="product__title"> {{this.title}} </h1> 
+                    <div class="card__image">
+                        <img src="https://www.netclipart.com/pp/m/7-76504_children-reading-bookscartoongoogle-boy-and-girl-reading-book.png"  
+                        alt="A Book" height="300px"width="300px;">
+                    </div>  
+                    <div class="card__content">
+                        <h2 class="product__price">$19.99</h2> 
+                        <p class="product__description"> A very interesting book about so many even more interesting things! </p>
+                    </div>  
+                    <div class="card__actions">
+                        <button class="btn Add to Cart"> Add to Cart </button>
+                </div>
+                {{/each}}
+
+        </article>
+    </div>
+
+    {{else}} <h1> No Products found !! </h1>
+    {{/if}}
+    </main>
+</body>
+
+</html>
