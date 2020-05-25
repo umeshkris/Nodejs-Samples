@@ -68,8 +68,6 @@ app.use(authRoutes);
 
 //app.use(errorPage.error404);
 
-
-
 mongoose.connect(MONGODB_URI)
 .then(result=>{
   console.log(' mongoosedb connection successful!');
