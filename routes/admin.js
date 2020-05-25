@@ -6,12 +6,14 @@ const router=express.Router();
 
 const {body} =require('express-validator/check'); // validator
 
+const isAuth= require('../middleware/is-auth');
+
 
 //.use is generic route which will handle all type requests. but if you you 
 // want specific type then mention get or post.
-router.get('/add-products',adminController.showAddProductPage)
+router.get('/add-products', isAuth, adminController.showAddProductPage)
 
-router.post('/add-products',adminController.postAddProduct);
+router.post('/add-products',isAuth, adminController.postAddProduct);
 // router.post('/add-products',  [
 //     body('title')
 //         .isString()
@@ -25,14 +27,14 @@ router.post('/add-products',adminController.postAddProduct);
 //         .trim()
 //     ],adminController.postAddProduct);
 
-router.get('/admin-products',adminController.adminProducts);  
+router.get('/admin-products',isAuth,adminController.adminProducts);  
 
 
-router.get('/edit-product/:productId',adminController.getEditProduct);
+router.get('/edit-product/:productId',isAuth,adminController.getEditProduct);
 
-router.post('/edit-product',adminController.postEditProduct);
+router.post('/edit-product',isAuth,adminController.postEditProduct);
 
-router.post('/delete-product',adminController.postDeleteProduct);
+router.post('/delete-product',isAuth,adminController.postDeleteProduct);
 
 
 //  router.post('/edit-product' , 

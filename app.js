@@ -9,6 +9,7 @@ const authRoutes =require('./routes/auth');
 
 const errorPage=require('./controllers/error')
 
+const flash =require('connect-flash');
 
 const mongoose = require('mongoose');
 
@@ -58,6 +59,8 @@ app.use(
     })
   );
 
+  app.use(flash());
+
 app.use(bodyParser.urlencoded({extended:false}));
 
 app.use(express.static(path.join(__dirname,'public'))); //serve the static files like css.
@@ -72,23 +75,24 @@ mongoose.connect(MONGODB_URI)
 .then(result=>{
   console.log(' mongoosedb connection successful!');
  
-User.findOne().then(user=>{
-  if(!user)
-  {
-    const user =new  User({
-      name:'Max',
-      email:'test.t@gmail.com',
-      cart:{
-        items:[]
-      }
-  })
-  user.save();
+//  removed becoz we are creating user from signup form
+ //User.findOne().then(user=>{
+//   if(!user)
+//   {
+//     const user =new  User({
+//       name:'Max',
+//       email:'test.t@gmail.com',
+//       cart:{
+//         items:[]
+//       }
+//   })
+//   user.save();
 
-  }
+//   }
 
-}).catch(err=>{
-  console.log(err);
-})
+// }).catch(err=>{
+//   console.log(err);
+// })
 
 
 app.listen(4001);

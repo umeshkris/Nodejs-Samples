@@ -5,6 +5,8 @@
                 <a class="<%= path=='/' ? 'active' :'' %>" href="/">Shop</a>
             </li>
 
+            <% if (isAuthenticated) { %>
+
             <li class="main-header-item">
                 <a class="<%= path=='/products' ? 'active' :'' %>" href="/products">Products</a>
             </li>
@@ -17,7 +19,7 @@
                 <a class="<%= path=='/order' ? 'active' :'' %>" href="/order">Order</a>
             </li>
 
-            <% if (isAuthenticated) { %>
+          
             <li class="main-header-item">
                 <a class="<%= path=='/admin-addproduct' ? 'active' :'' %>" href="/admin/add-products">Add Product</a>
             </li>
@@ -26,8 +28,8 @@
             <li class="main-header-item">
                 <a class="<%= path=='/admin-products' ? 'active' :'' %>" href="/admin/admin-products">Admin Products</a>
             </li>
-
-            <%}%>
+<%}%>
+          
         </ul>
 		
 		
